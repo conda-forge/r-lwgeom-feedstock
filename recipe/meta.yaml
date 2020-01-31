@@ -43,13 +43,16 @@ requirements:
     - r-rcpp
     - r-sf >=0.6_0
     - r-units
-
+    - geos >=3.3.0
+    - proj
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
     - r-rcpp
     - r-sf >=0.6_0
     - r-units
+    - geos >=3.3.0
+    - proj
 
 test:
   commands:
