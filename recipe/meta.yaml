@@ -44,7 +44,7 @@ requirements:
     - r-sf >=0.6_0
     - r-units
     - geos >=3.3.0
-    - proj4
+    - proj4 <6
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
@@ -52,7 +52,7 @@ requirements:
     - r-sf >=0.6_0
     - r-units
     - geos >=3.3.0
-    - proj4
+    - proj4 <6
 
 test:
   commands:
