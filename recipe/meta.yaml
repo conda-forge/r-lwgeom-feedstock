@@ -1,5 +1,4 @@
-{% set version = "0.2-1" %}
-
+{% set version = '0.2-1' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -16,7 +15,6 @@ source:
 build:
   merge_build_host: True  # [win]
   number: 0
-
   rpaths:
     - lib/R/lib/
     - lib/
@@ -37,19 +35,21 @@ requirements:
     - {{posix}}make
     - {{posix}}coreutils         # [win]
     - {{posix}}zip               # [win]
-
   host:
     - r-base
     - r-rcpp
     - r-sf >=0.6_0
     - r-units
-
+    - geos >=3.3.0
+    - proj4
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
     - r-rcpp
     - r-sf >=0.6_0
     - r-units
+    - geos >=3.3.0
+    - proj4
 
 test:
   commands:
@@ -59,14 +59,36 @@ test:
 about:
   home: https://github.com/r-spatial/lwgeom/
   license: GPL-2
-  summary: Access to selected functions found in 'liblwgeom' <https://github.com/postgis/postgis/tree/svn-trunk/liblwgeom>,
+  summary: Access to selected functions found in 'liblwgeom' <https://github.com/postgis/postgis/tree/master/liblwgeom>,
     the light-weight geometry library used by 'PostGIS' <http://postgis.net/>.
   license_family: GPL2
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
-  description: Access to selected functions found in liblwgeom, the light-weight geometry library used by PostGIS
-  doc_url: https://cran.r-project.org/web/packages/lwgeom/lwgeom.pdf
-  dev_url: https://github.com/r-spatial/lwgeom/
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+
 extra:
   recipe-maintainers:
-    - agcopenhaver
     - conda-forge/r
+    - agcopenhaver
+
+# Package: lwgeom
+# Version: 0.2-1
+# Title: Bindings to Selected 'liblwgeom' Functions for Simple Features
+# Description: Access to selected functions found in 'liblwgeom' <https://github.com/postgis/postgis/tree/master/liblwgeom>, the light-weight geometry library used by 'PostGIS' <http://postgis.net/>.
+# Authors@R: c(person("Edzer", "Pebesma", role = c("aut", "cre"), email = "edzer.pebesma@uni-muenster.de", comment = c(ORCID = "0000-0001-8049-7069")), person("Colin", "Rundel", role = "ctb"), person("Andy", "Teucher", role = "ctb"), person("liblwgeom developers", role = "cph"))
+# Depends: R (>= 3.3.0)
+# Imports: Rcpp, units, sf (>= 0.6-0)
+# Suggests: covr, sp, geosphere, testthat
+# LinkingTo: Rcpp, sf (>= 0.6-0)
+# SystemRequirements: GEOS (>= 3.3.0), PROJ (>= 4.8.0)
+# License: GPL-2
+# Copyright: file COPYRIGHTS
+# URL: https://github.com/r-spatial/lwgeom/
+# BugReports: https://github.com/r-spatial/lwgeom/issues/
+# Collate: init.R RcppExports.R geohash.R split.R subdivide.R valid.R transform.R bounding_circle.R bearing.R snap_to_grid.R startpoint.R twkb.R perimeter.R clockwise.R geod.R wkt.R
+# RoxygenNote: 7.0.2
+# NeedsCompilation: yes
+# Packaged: 2020-01-31 11:21:34 UTC; edzer
+# Author: Edzer Pebesma [aut, cre] (<https://orcid.org/0000-0001-8049-7069>), Colin Rundel [ctb], Andy Teucher [ctb], liblwgeom developers [cph]
+# Maintainer: Edzer Pebesma <edzer.pebesma@uni-muenster.de>
+# Repository: CRAN
+# Date/Publication: 2020-01-31 13:20:05 UTC
