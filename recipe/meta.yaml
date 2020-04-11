@@ -37,19 +37,21 @@ requirements:
     - {{posix}}make
     - {{posix}}coreutils         # [win]
     - {{posix}}zip               # [win]
-
   host:
     - r-base
     - r-rcpp
-    - r-sf >=0.6_0
+    - r-sf >=0.9_0
     - r-units
-
+    - geos
+    - proj
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
     - r-rcpp
-    - r-sf >=0.6_0
+    - r-sf >=0.9_0
     - r-units
+    - geos
+    - proj
 
 test:
   commands:
