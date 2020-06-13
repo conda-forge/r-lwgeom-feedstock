@@ -1,4 +1,4 @@
-{% set version = '0.1-7' %}
+{% set version = "0.2-5" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -11,11 +11,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/lwgeom_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/lwgeom/lwgeom_{{ version }}.tar.gz
-  sha256: 7729734ddf2c0551dcefb293e4b7988118547d14abc943c590a6f4d1a34e6ed0
+  sha256: 4a1d93f96c10c2aac173d8186cf7d7bef7febcb3cf066a7f45da32251496d02f
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  merge_build_host: true  # [win]
+  number: 0
 
   rpaths:
     - lib/R/lib/
@@ -59,10 +59,9 @@ test:
 about:
   home: https://github.com/r-spatial/lwgeom/
   license: GPL-2
-  summary: Access to selected functions found in 'liblwgeom' <https://github.com/postgis/postgis/tree/svn-trunk/liblwgeom>,
-    the light-weight geometry library used by 'PostGIS' <http://postgis.net/>.
+  summary: Access to selected functions found in 'liblwgeom' <https://github.com/postgis/postgis/tree/svn-trunk/liblwgeom>, the light-weight geometry library used by 'PostGIS' <http://postgis.net/>.
   license_family: GPL2
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
   description: Access to selected functions found in liblwgeom, the light-weight geometry library used by PostGIS
   doc_url: https://cran.r-project.org/web/packages/lwgeom/lwgeom.pdf
   dev_url: https://github.com/r-spatial/lwgeom/
