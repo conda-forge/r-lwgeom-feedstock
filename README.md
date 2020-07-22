@@ -3,9 +3,9 @@ About r-lwgeom
 
 Home: https://github.com/r-spatial/lwgeom/
 
-Package license: GPL-2
+Package license: GPL-2.0-only
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Access to selected functions found in 'liblwgeom' <https://github.com/postgis/postgis/tree/svn-trunk/liblwgeom>, the light-weight geometry library used by 'PostGIS' <http://postgis.net/>.
 
