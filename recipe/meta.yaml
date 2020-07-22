@@ -43,7 +43,7 @@ requirements:
     - r-rcpp
     - r-sf >=0.9_3
     - r-units
-
+    - proj
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
