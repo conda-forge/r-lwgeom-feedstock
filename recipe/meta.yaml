@@ -15,16 +15,13 @@ source:
 
 build:
   merge_build_host: true  # [win]
-  number: 1
-  # Linking issues during configuration on OSX
-  skip: True  # [osx]
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - proj  # [not win]
     - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ compiler('cxx') }}            # [not win]
