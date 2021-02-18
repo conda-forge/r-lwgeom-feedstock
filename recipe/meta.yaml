@@ -15,9 +15,7 @@ source:
 
 build:
   merge_build_host: true  # [win]
-  number: 1
-  # Linking issues during configuration on OSX
-  skip: True  # [osx]
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
