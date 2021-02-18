@@ -22,7 +22,6 @@ build:
 
 requirements:
   build:
-    - proj  # [not win]
     - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ compiler('cxx') }}            # [not win]
