@@ -1,4 +1,4 @@
-{% set version = "0.2-7" %}
+{% set version = "0.2-8" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -11,11 +11,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/lwgeom_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/lwgeom/lwgeom_{{ version }}.tar.gz
-  sha256: b34c155f3d7c4535ef3d02e3381b05a57990d19b3b1ec09a7458c101f8fafae1
+  sha256: f48a92de222da0590b37a30d5cbf2364555044a842795f6b488afecc650b8b34
 
 build:
   merge_build_host: true  # [win]
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
