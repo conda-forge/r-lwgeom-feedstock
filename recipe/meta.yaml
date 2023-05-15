@@ -42,6 +42,7 @@ requirements:
     - r-rcpp
     - r-sf >=0.9_3
     - r-units
+    - geos  # [not win]
     - proj  # [not win]
   run:
     - r-base
