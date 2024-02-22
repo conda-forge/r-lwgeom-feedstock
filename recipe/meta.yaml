@@ -1,5 +1,4 @@
 {% set version = "0.2-14" %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -19,13 +18,14 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  skip: true  # [win]
 
 requirements:
   build:
-    - {{ compiler('c') }}              # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('cxx') }}            # [not win]
-    - {{ compiler('m2w64_cxx') }}      # [win]
+    - {{ compiler('c') }}          # [not win]
+    - {{ compiler('m2w64_c') }}    # [win]
+    - {{ compiler('cxx') }}        # [not win]
+    - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}sed               # [win]
     - {{ posix }}grep              # [win]
@@ -40,7 +40,7 @@ requirements:
   host:
     - r-base
     - r-rcpp
-    - r-sf >=0.9_3
+    - r-sf >=1.0_15
     - r-units
     - geos  # [not win]
     - proj  # [not win]
@@ -48,7 +48,7 @@ requirements:
     - r-base
     - {{ native }}gcc-libs         # [win]
     - r-rcpp
-    - r-sf >=0.9_3
+    - r-sf >=1.0_15
     - r-units
 
 test:
@@ -57,14 +57,14 @@ test:
     - "\"%R%\" -e \"library('lwgeom')\""  # [win]
 
 about:
-  home: https://github.com/r-spatial/lwgeom/
+  home: https://r-spatial.github.io/lwgeom/
+  dev_url: https://github.com/r-spatial/lwgeom/
+  doc_url: https://cran.r-project.org/web/packages/lwgeom/lwgeom.pdf
   license: GPL-2.0-only
   summary: Access to selected functions found in 'liblwgeom' <https://github.com/postgis/postgis/tree/svn-trunk/liblwgeom>, the light-weight geometry library used by 'PostGIS' <http://postgis.net/>.
   license_family: GPL2
   license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
   description: Access to selected functions found in liblwgeom, the light-weight geometry library used by PostGIS
-  doc_url: https://cran.r-project.org/web/packages/lwgeom/lwgeom.pdf
-  dev_url: https://github.com/r-spatial/lwgeom/
 extra:
   recipe-maintainers:
     - agcopenhaver
