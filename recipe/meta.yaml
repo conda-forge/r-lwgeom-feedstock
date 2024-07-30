@@ -19,7 +19,6 @@ build:
     - lib/R/lib/
     - lib/
   skip: true  # [win]
-  skip: true  # [ppc64le]
 
 requirements:
   build:
