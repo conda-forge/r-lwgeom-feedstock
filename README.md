@@ -73,6 +73,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>linux_ppc64le</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7067&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-lwgeom-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7067&branchName=main">
@@ -210,7 +217,4 @@ Feedstock Maintainers
 
 * [@agcopenhaver](https://github.com/agcopenhaver/)
 * [@conda-forge/r](https://github.com/conda-forge/r/)
-
-
-<!-- dummy commit to enable rerendering -->
 
