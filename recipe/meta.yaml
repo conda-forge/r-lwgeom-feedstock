@@ -14,12 +14,11 @@ source:
 
 build:
   merge_build_host: true  # [win]
-  number: 3
+  number: 4
   rpaths:
     - lib/R/lib/
     - lib/
   skip: true  # [win]
-  skip: true  # [ppc64le]
 
 requirements:
   build:
