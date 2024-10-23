@@ -15,7 +15,7 @@ index 67f4da2..d08a461 100644
  #include <stdio.h>      /* defines printf for tests */
  #include <time.h>       /* defines time_t for timings in the test */
  #include <stdint.h>     /* defines uint32_t etc */
-+#ifndef WIN32
++#ifndef _MSC_VER
  #include <sys/param.h>  /* attempt to define endianness */
 +#endif
  #ifdef linux
