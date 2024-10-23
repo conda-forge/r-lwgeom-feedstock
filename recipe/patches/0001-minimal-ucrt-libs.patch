@@ -13,7 +13,7 @@ index c3345a5..8863007 100644
 +++ b/src/Makevars.ucrt
 @@ -1,4 +1,6 @@
 -STATLIB = liblwgeom/liblwgeomstatic.a
-+PKG_CPPFLAGS=-I./liblwgeom -DUSE_PROJ_H
++PKG_CPPFLAGS=-I./liblwgeom -DUSE_PROJ_H -D_USE_MATH_DEFINES
 +PKG_LIBS=-L./liblwgeom -llwgeom -lgeos -lproj
 +CXX_STD = CXX
  
