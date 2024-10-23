@@ -1,14 +1,14 @@
-From bcd672cac41ef253b37b7aae8cf6703790704eaa Mon Sep 17 00:00:00 2001
+From 92f1d3fcd34b57f330d8fded2b3c7499800c92b4 Mon Sep 17 00:00:00 2001
 From: Daniel Nachun <daniel.nachun@gmail.com>
 Date: Wed, 23 Oct 2024 10:40:32 -0700
 Subject: [PATCH] minimal-ucrt-libs
 
 ---
- src/Makevars.ucrt | 52 +++++++++++------------------------------------
- 1 file changed, 12 insertions(+), 40 deletions(-)
+ src/Makevars.ucrt | 45 ++++-----------------------------------------
+ 1 file changed, 4 insertions(+), 41 deletions(-)
 
 diff --git a/src/Makevars.ucrt b/src/Makevars.ucrt
-index c3345a5..4675d7b 100644
+index c3345a5..8863007 100644
 --- a/src/Makevars.ucrt
 +++ b/src/Makevars.ucrt
 @@ -1,4 +1,6 @@
@@ -19,7 +19,7 @@ index c3345a5..4675d7b 100644
  
  OBJECTS_LIBLWGEOM= \
    liblwgeom/varint.o \
-@@ -72,43 +74,13 @@ OBJECTS_LIBLWGEOM= \
+@@ -72,43 +74,4 @@ OBJECTS_LIBLWGEOM= \
    liblwgeom/lwcircstring.o \
    liblwgeom/lwin_wkt_parse.o
  
@@ -61,17 +61,9 @@ index c3345a5..4675d7b 100644
 -
 -clean:
 -	rm -f $(SHLIB) $(OBJECTS)
-+OBJECTS_RCPP= \
-+  geodetic.o \
-+  lwgeom.o \
-+  RcppExports.o \
-+  proj.o \
-+  geos.o \
-+  io.o \
-+  sub.o
- 
+-
 -.PHONY: all winlibs clean
-+OBJECTS=@OBJECTS@
++$(SHLIB): $(OBJECTS_LIBLWGEOM)
 -- 
 2.45.2
 
