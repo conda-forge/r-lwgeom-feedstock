@@ -1,25 +1,25 @@
-From 4caabb64493918f8a1e196a9c9f30475e6cd5f88 Mon Sep 17 00:00:00 2001
+From ffba7344c556040b6cb023bc1df01b912a18a20c Mon Sep 17 00:00:00 2001
 From: Daniel Nachun <daniel.nachun@gmail.com>
 Date: Wed, 23 Oct 2024 10:40:32 -0700
 Subject: [PATCH 1/2] minimal-ucrt-libs
 
 ---
- src/Makevars.ucrt | 52 ++++++++++-------------------------------------
- 1 file changed, 11 insertions(+), 41 deletions(-)
+ src/Makevars.ucrt | 52 +++++++++++------------------------------------
+ 1 file changed, 12 insertions(+), 40 deletions(-)
 
 diff --git a/src/Makevars.ucrt b/src/Makevars.ucrt
-index c3345a5..89c02e5 100644
+index c3345a5..7645356 100644
 --- a/src/Makevars.ucrt
 +++ b/src/Makevars.ucrt
 @@ -1,4 +1,6 @@
 -STATLIB = liblwgeom/liblwgeomstatic.a
 +PKG_CPPFLAGS=-I./liblwgeom -DUSE_PROJ_H -D_USE_MATH_DEFINES -DYY_NO_UNISTD_H -Wno-implicit-function-declaration
-+PKG_LIBS= -lgeos -lproj
++PKG_LIBS= -lgeos_c -lproj
 +CXX_STD = CXX
  
  OBJECTS_LIBLWGEOM= \
    liblwgeom/varint.o \
-@@ -72,43 +74,11 @@ OBJECTS_LIBLWGEOM= \
+@@ -72,43 +74,13 @@ OBJECTS_LIBLWGEOM= \
    liblwgeom/lwcircstring.o \
    liblwgeom/lwin_wkt_parse.o
  
@@ -61,8 +61,6 @@ index c3345a5..89c02e5 100644
 -
 -clean:
 -	rm -f $(SHLIB) $(OBJECTS)
--
--.PHONY: all winlibs clean
 +OBJECTS_RCPP= \
 +  geodetic.o \
 +  lwgeom.o \
@@ -71,6 +69,9 @@ index c3345a5..89c02e5 100644
 +  geos.o \
 +  io.o \
 +  sub.o
+ 
+-.PHONY: all winlibs clean
++OBJECTS=$(OBJECTS_LIBLWGEOM) $(OBJECTS_RCPP)
 -- 
 2.45.2
 
