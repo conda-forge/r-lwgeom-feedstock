@@ -1,0 +1,26 @@
+From de6867dd86745b4f421d1085f6e0b2f1535caea5 Mon Sep 17 00:00:00 2001
+From: Daniel Nachun <daniel.nachun@gmail.com>
+Date: Wed, 23 Oct 2024 11:39:42 -0700
+Subject: [PATCH 2/3] fix headers
+
+---
+ src/liblwgeom/lookup3.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/liblwgeom/lookup3.c b/src/liblwgeom/lookup3.c
+index 67f4da2..c34e1d3 100644
+--- a/src/liblwgeom/lookup3.c
++++ b/src/liblwgeom/lookup3.c
+@@ -38,7 +38,9 @@ on 1 byte), but shoehorning those bytes into integers efficiently is messy.
+ #include <stdio.h>      /* defines printf for tests */
+ #include <time.h>       /* defines time_t for timings in the test */
+ #include <stdint.h>     /* defines uint32_t etc */
++#ifndef _MSC_VER
+ #include <sys/param.h>  /* attempt to define endianness */
++#endif
+ #ifdef linux
+ # include <endian.h>    /* attempt to define endianness */
+ #endif
+-- 
+2.45.2
+
