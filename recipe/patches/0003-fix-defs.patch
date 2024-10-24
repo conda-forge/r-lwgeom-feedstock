@@ -1,0 +1,27 @@
+From ef8f5b455b5e91bdc1e3a855f9c6f884dbeb2ee4 Mon Sep 17 00:00:00 2001
+From: Daniel Nachun <daniel.nachun@gmail.com>
+Date: Wed, 23 Oct 2024 17:08:35 -0700
+Subject: [PATCH 3/3] fix-defs
+
+---
+ src/liblwgeom/lwgeom_transform.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/liblwgeom/lwgeom_transform.c b/src/liblwgeom/lwgeom_transform.c
+index 5b4ef4e..ac27a86 100644
+--- a/src/liblwgeom/lwgeom_transform.c
++++ b/src/liblwgeom/lwgeom_transform.c
+@@ -28,6 +28,10 @@
+ #include "lwgeom_log.h"
+ #include <string.h>
+ 
++#ifdef _MSC_VER
++#define strcasecmp _stricmp
++#endif
++
+ /** convert decimal degress to radians */
+ static void
+ to_rad(POINT4D *pt)
+-- 
+2.45.2
+

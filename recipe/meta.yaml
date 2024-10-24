@@ -13,6 +13,7 @@ source:
   patches:
     - patches/0001-minimal-ucrt-libs.patch
     - patches/0002-fix-headers.patch
+    - patches/0003-fix-defs.patch
 
 build:
   number: 6
