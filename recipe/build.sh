@@ -1,7 +1,14 @@
 #!/bin/bash
-set -o errexit -o pipefail
 
-export CPPFLAGS="${CPPFLAGS} -Wl,-rpath,${PREFIX}/lib"
+set -euxo pipefail
+
+if [[ "${build_platform}" != "${target_platform}" ]]; then
+  # This is misleading, remove.
+  rm $BUILD_PREFIX/bin/geos-config
+fi
+export PROJ_VERSION=$proj
+
+export CPPFLAGS="${CPPFLAGS} -Wl,-rpath,${PREFIX}/lib -I${PREFIX}/include"
 # This is just to get around a configure failure when trying to link to gdal.	  ${R} CMD INSTALL --build .
 LIBS="-L${PREFIX}/lib -Wl,-rpath,${PREFIX}/lib"
 if [[ ${target_platform} == osx-* ]] || [[ ${target_platform} == linux-* ]]; then
@@ -13,4 +20,4 @@ fi
 export DISABLE_AUTOBREW=1
 mv DESCRIPTION DESCRIPTION.old
 grep -v '^Priority: ' DESCRIPTION.old > DESCRIPTION
-${R} CMD INSTALL --build .
+${R} CMD INSTALL --build . ${R_ARGS:-} --configure-args="--with-proj-lib=$PREFIX/lib --with-proj-include=$PREFIX/include"
