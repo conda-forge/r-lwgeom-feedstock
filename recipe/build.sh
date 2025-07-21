@@ -20,4 +20,4 @@ fi
 export DISABLE_AUTOBREW=1
 mv DESCRIPTION DESCRIPTION.old
 grep -v '^Priority: ' DESCRIPTION.old > DESCRIPTION
-${R} CMD INSTALL --build . ${R_ARGS} --configure-args="--with-proj-lib=$PREFIX/lib --with-proj-include=$PREFIX/include"
+${R} CMD INSTALL --build . ${R_ARGS:-} --configure-args="--with-proj-lib=$PREFIX/lib --with-proj-include=$PREFIX/include"
