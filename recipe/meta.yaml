@@ -16,7 +16,7 @@ source:
     - patches/0003-fix-defs.patch
 
 build:
-  number: 9
+  number: 10
   rpaths:
     - lib/R/lib/
     - lib/
@@ -24,6 +24,7 @@ build:
     - '*/R.dll'        # [win]
     - '*/Rblas.dll'    # [win]
     - '*/Rlapack.dll'  # [win]
+  skip: True  # [ppc64le]
 
 requirements:
   build:
