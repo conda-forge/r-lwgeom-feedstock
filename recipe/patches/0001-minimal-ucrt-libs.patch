@@ -13,7 +13,7 @@ index 414b5f8..7645356 100644
 +++ b/src/Makevars.ucrt
 @@ -1,4 +1,6 @@
 -STATLIB = liblwgeom/liblwgeomstatic.a
-+PKG_CPPFLAGS=-I./liblwgeom -DUSE_PROJ_H -D_USE_MATH_DEFINES -DYY_NO_UNISTD_H -Wno-implicit-function-declaration
++PKG_CPPFLAGS=-I./liblwgeom -DPOSTGIS_PROJ_VERSION=97 -DUSE_PROJ_H -D_USE_MATH_DEFINES -DYY_NO_UNISTD_H -Wno-implicit-function-declaration
 +PKG_LIBS= -lgeos_c -lproj
 +CXX_STD = CXX
  
