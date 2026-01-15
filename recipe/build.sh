@@ -10,6 +10,7 @@ if [[ "${build_platform}" != "${target_platform}" ]]; then
   cp src/Makevars.in src/Makevars
   sed -i 's?@PKG_CPPFLAGS@?-DHAVE_PROJ_H -DPOSTGIS_PROJ_VERSION=97 -DUSE_PROJ_H -DPOSTGIS_GEOS_VERSION=35 -I./liblwgeom -DHAVE_LIBLWGEOM_INTERNAL_H?' src/Makevars
   sed -i 's/@PKG_LIBS@/-lproj -lgeos_c/' src/Makevars
+  sed -i 's/@OBJECTS@/$(OBJECTS_LIBLWGEOM) $(OBJECTS_RCPP)/' src/Makevars
 fi
 export PROJ_VERSION=$proj
 
