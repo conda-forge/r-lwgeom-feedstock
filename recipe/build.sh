@@ -4,7 +4,12 @@ set -o xtrace -o nounset -o pipefail -o errexit
 
 if [[ "${build_platform}" != "${target_platform}" ]]; then
   # This is misleading, remove.
-  rm $BUILD_PREFIX/bin/geos-config
+  # rm $BUILD_PREFIX/bin/geos-config
+  # Skip configure script on cross-compile
+  rm configure
+  cp src/Makevars.in src/Makevars
+  sed -i 's/@PKG_CPPFLAGS@/-DHAVE_PROJ_H -DPOSTGIS_PROJ_VERSION=97 -DUSE_PROJ_H -DPOSTGIS_GEOS_VERSION=35 -I./liblwgeom -DHAVE_LIBLWGEOM_INTERNAL_H' src/Makevars
+  sed -i 's/@PKG_LIBS@/-lproj -lgeos_c/' src/Makevars
 fi
 export PROJ_VERSION=$proj
 
