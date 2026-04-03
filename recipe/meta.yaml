@@ -3,7 +3,7 @@
 
 package:
   name: r-lwgeom
-  version: {{ version|replace("-", "_") }}
+  version: "{{ version|replace("-", "_") }}"
 
 source:
   url:
@@ -16,7 +16,7 @@ source:
     - patches/0003-fix-defs.patch
 
 build:
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -70,9 +70,12 @@ about:
   doc_url: https://cran.r-project.org/web/packages/lwgeom/lwgeom.pdf
   license: GPL-2.0-only
   summary: Access to selected functions found in 'liblwgeom' <https://github.com/postgis/postgis/tree/svn-trunk/liblwgeom>, the light-weight geometry library used by 'PostGIS' <http://postgis.net/>.
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
   description: Access to selected functions found in liblwgeom, the light-weight geometry library used by PostGIS
+  license_family: GPL2
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+
 extra:
   recipe-maintainers:
-    - agcopenhaver
     - conda-forge/r
+    - agcopenhaver
