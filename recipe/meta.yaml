@@ -1,4 +1,4 @@
-{% set version = "0.2-15" %}
+{% set version = "0.2-16" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,14 +9,14 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/lwgeom_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/lwgeom/lwgeom_{{ version }}.tar.gz
-  sha256: 65937460bab139bb44129bd30ffda48b1ea9622b0c5465392a67d71b3a6eac66
+  sha256: dade2e68a67f32ae74f84c3783a8ea220f17454b3ae060173a64c1f86ddef5e5
   patches:
     - patches/0001-minimal-ucrt-libs.patch
     - patches/0002-fix-headers.patch
     - patches/0003-fix-defs.patch
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
