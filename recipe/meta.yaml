@@ -16,7 +16,7 @@ source:
     - patches/0003-fix-defs.patch
 
 build:
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
